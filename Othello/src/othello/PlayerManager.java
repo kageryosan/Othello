@@ -8,16 +8,18 @@ public class PlayerManager {
 	Player cpu;
 
 	PlayerManager() {
-		player = new Player("プレイヤー", PLAYER_PIECE, false);
-		cpu = new Player("コンピューター", CPU_PIECE, true);
+		player = makePlayer("プレイヤー");
+		cpu = makePlayer("コンピューター");
 	}
 
-	void makePlayer(String name) {
+	Player makePlayer(String name) {
 		player = new Player(name, PLAYER_PIECE, false);
+		return player;
 	}
 
-	void makeCPU(String name) {
-		cpu = new Player(name, CPU_PIECE, true);
+	Player makeCPU(String name) {
+		Player cpu = new Player(name, CPU_PIECE, true);
+		return cpu;
 	}
 
 	Player getPlayer() {

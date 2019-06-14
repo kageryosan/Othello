@@ -16,7 +16,7 @@ public class GameManager {
 	static Piece PLAYER_PIECE = null;
 	static Piece CPU_PIECE = null;
 
-	//入力要求用インスタンス
+	// 入力要求用インスタンス
 	BufferedReader reader;
 	// 縦×横のマス数
 	private int squareCount;
@@ -26,11 +26,11 @@ public class GameManager {
 	GameManager(boolean playerIsFirst) {
 		// 先手/後手の設定
 		if (playerIsFirst) {
-			PLAYER_PIECE = Piece.WHITE;
-			CPU_PIECE = Piece.BLACK;
-		} else {
 			PLAYER_PIECE = Piece.BLACK;
 			CPU_PIECE = Piece.WHITE;
+		} else {
+			PLAYER_PIECE = Piece.WHITE;
+			CPU_PIECE = Piece.BLACK;
 		}
 		// プレイヤー情報の取得
 		players = getPlayers();
@@ -90,7 +90,7 @@ public class GameManager {
 	 */
 	boolean requestEntryForAutoMode() {
 		// 全角と半角双方を許容する。
-		List<String> agree = Arrays.asList(new String[] {"y","ｙ"});
+		List<String> agree = Arrays.asList(new String[] { "y", "ｙ" });
 		String input = requestEntry(reader, "自動進行モードを有効にする場合はyを入力してください。");
 		return agree.contains(input);
 	}
