@@ -90,7 +90,7 @@ public class GameManager {
 	 */
 	boolean requestEntryForAutoMode() {
 		// 全角と半角双方を許容する。
-		List<String> agree = Arrays.asList(new String[] { "y", "ｙ" });
+		List<String> agree = Arrays.asList(new String[] { "ｙ", "y" });
 		String input = requestEntry(reader, "自動進行モードを有効にする場合はyを入力してください。");
 		return agree.contains(input);
 	}

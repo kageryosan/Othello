@@ -9,7 +9,7 @@ public class PlayerManager {
 
 	PlayerManager() {
 		player = makePlayer("プレイヤー");
-		cpu = makePlayer("コンピューター");
+		cpu = makeCPU("コンピューター");
 	}
 
 	Player makePlayer(String name) {

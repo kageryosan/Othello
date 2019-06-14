@@ -111,7 +111,7 @@ public class Board {
 	private boolean checkLeft(int column, int row, Piece opponentsPiece) {
 		boolean isSelectable = false;
 		int leftColumn = column - 1;
-		// 左端の場合はチェック不要
+		// 左端の列の場合はチェック不要
 		if (leftColumn < 0) {
 			return isSelectable;
 		}
@@ -131,7 +131,7 @@ public class Board {
 	private boolean checkRight(int column, int row, Piece opponentsPiece) {
 		boolean isSelectable = false;
 		int rightColumn = column + 1;
-		// 右端の場合はチェック不要
+		// 右端の列の場合はチェック不要
 		if (rightColumn > board.length - 1) {
 			return isSelectable;
 		}
@@ -151,11 +151,11 @@ public class Board {
 	private boolean checkCenter(int column, int row, Piece opponentsPiece) {
 
 		boolean isSelectable = false;
-		// 最上段ではない場合、上段のチェック
+		// 最上の行ではない場合、上段のチェック
 		if ((row - 1) >= 0 && board[row - 1][column].is(opponentsPiece)) {
 			isSelectable = true;
 		}
-		// 最下段ではない場合、下段のチェック
+		// 最下の行ではない場合、下段のチェック
 		if (row < board.length - 1 && board[row + 1][column].is(opponentsPiece)) {
 			isSelectable = true;
 		}
@@ -209,13 +209,13 @@ public class Board {
 				isSkipFirst = false;
 				continue;
 			}
-			// 相手の駒が存在すれば、フラグを立てる。（立てるだけ）
+			// 相手の駒が存在すれば、識別フラグを立てる。
 			if (board[index][column].is(opponentsPiece)) {
 				turnOverFlg = true;
 				continue;
 			} else {
 				// いくつかの相手の駒の先に、自分の駒がある場合はひっくり返す事ができるが、
-				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、ループを終了する。
+				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、フラグを立てない。
 				if (!board[index][column].isEmpty() && turnOverFlg) {
 					canTurnOver = true;
 				}
@@ -239,13 +239,13 @@ public class Board {
 				isSkipFirst = false;
 				continue;
 			}
-			// 相手の駒が存在すれば、フラグを立てる。（立てるだけ）
+			// 相手の駒が存在すれば、識別フラグを立てる。
 			if (board[index][column].is(opponentsPiece)) {
 				turnOverFlg = true;
 				continue;
 			} else {
 				// いくつかの相手の駒の先に、自分の駒がある場合はひっくり返す事ができるが、
-				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、ループを終了する。
+				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、フラグを立てない。
 				if (!board[index][column].isEmpty() && turnOverFlg) {
 					canTurnOver = true;
 				}
@@ -269,13 +269,13 @@ public class Board {
 				isSkipFirst = false;
 				continue;
 			}
-			// 相手の駒が存在すれば、フラグを立てる。（立てるだけ）
+			// 相手の駒が存在すれば、識別フラグを立てる。
 			if (board[row][index].is(opponentsPiece)) {
 				turnOverFlg = true;
 				continue;
 			} else {
 				// いくつかの相手の駒の先に、自分の駒がある場合はひっくり返す事ができるが、
-				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、ループを終了する。
+				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、フラグを立てない。
 				if (!board[row][index].isEmpty() && turnOverFlg) {
 					canTurnOver = true;
 				}
@@ -299,13 +299,13 @@ public class Board {
 				isSkipFirst = false;
 				continue;
 			}
-			// 相手の駒が存在すれば、フラグを立てる。（立てるだけ）
+			// 相手の駒が存在すれば、識別フラグを立てる。
 			if (board[row][index].is(opponentsPiece)) {
 				turnOverFlg = true;
 				continue;
 			} else {
 				// いくつかの相手の駒の先に、自分の駒がある場合はひっくり返す事ができるが、
-				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、ループを終了する。
+				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、フラグを立てない。
 				if (!board[row][index].isEmpty() && turnOverFlg) {
 					canTurnOver = true;
 				}
@@ -329,13 +329,13 @@ public class Board {
 				isSkipFirst = false;
 				continue;
 			}
-			// 相手の駒が存在すれば、フラグを立てる。（立てるだけ）
+			// 相手の駒が存在すれば、識別フラグを立てる。
 			if (board[row - i][column - i].is(opponentsPiece)) {
 				turnOverFlg = true;
 				continue;
 			} else {
 				// いくつかの相手の駒の先に、自分の駒がある場合はひっくり返す事ができるが、
-				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、ループを終了する。
+				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、フラグを立てない。
 				if (!board[row - i][column - i].isEmpty() && turnOverFlg) {
 					canTurnOver = true;
 				}
@@ -359,13 +359,13 @@ public class Board {
 				isSkipFirst = false;
 				continue;
 			}
-			// 相手の駒が存在すれば、フラグを立てる。（立てるだけ）
+			// 相手の駒が存在すれば、識別フラグを立てる。
 			if (board[row - i][column + i].is(opponentsPiece)) {
 				turnOverFlg = true;
 				continue;
 			} else {
 				// いくつかの相手の駒の先に、自分の駒がある場合はひっくり返す事ができるが、
-				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、ループを終了する。
+				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、フラグを立てない。
 				if (!board[row - i][column + i].isEmpty() && turnOverFlg) {
 					canTurnOver = true;
 				}
@@ -389,13 +389,13 @@ public class Board {
 				isSkipFirst = false;
 				continue;
 			}
-			// 相手の駒が存在すれば、フラグを立てる。（立てるだけ）
+			// 相手の駒が存在すれば、識別フラグを立てる。
 			if (board[row + i][column - i].is(opponentsPiece)) {
 				turnOverFlg = true;
 				continue;
 			} else {
 				// いくつかの相手の駒の先に、自分の駒がある場合はひっくり返す事ができるが、
-				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、ループを終了する。
+				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、フラグを立てない。
 				if (!board[row + i][column - i].isEmpty() && turnOverFlg) {
 					canTurnOver = true;
 				}
@@ -419,13 +419,13 @@ public class Board {
 				isSkipFirst = false;
 				continue;
 			}
-			// 相手の駒が存在すれば、フラグを立てる。（立てるだけ）
+			// 相手の駒が存在すれば、識別フラグを立てる。
 			if (board[row + i][column + i].is(opponentsPiece)) {
 				turnOverFlg = true;
 				continue;
 			} else {
 				// いくつかの相手の駒の先に、自分の駒がある場合はひっくり返す事ができるが、
-				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、ループを終了する。
+				// すぐ隣に自分の駒がある場合はひっくり返す事ができないので、フラグを立てない。
 				if (!board[row + i][column + i].isEmpty() && turnOverFlg) {
 					canTurnOver = true;
 				}
@@ -435,6 +435,13 @@ public class Board {
 		return canTurnOver;
 	}
 
+	/**
+	 * 指定した箇所に駒を配置する。
+	 *
+	 * @param column 列番号
+	 * @param row 行番号
+	 * @param piece 配置する駒オブジェクト
+	 */
 	void putPiece(int column, int row, Piece piece) {
 		board[row][column] = piece;
 	}
@@ -532,9 +539,11 @@ public class Board {
 		boolean isSkip = true;
 		for (int row = 0; row < squareCount; row++) {
 			for (int column = 0; column < squareCount; column++) {
+				// 空いているマスだけチェックすればよいのでSKIP
 				if (!squareIsEmpty(column, row)) {
 					continue;
 				}
+				// １つでも選択可能マスがあれば、falseにしてループを終了
 				if (isSelectable(column, row, player.getPiece())) {
 					isSkip = false;
 					break;
